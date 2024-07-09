@@ -39,8 +39,8 @@ end
 
 local elementsNeeded = {}
 
-for i=1,totalX do
-    for j=1,totalY  do
+for i=0,totalX do
+    for j=0,totalY  do
         elementsNeeded[swapAndAdd(i,j)] = true
     end
 end
@@ -55,6 +55,7 @@ end
 
 for i,o in pairs(elementsNeeded) do
     if o then
+        print("Missing: " .. i)
         fs.copy("black-1024.png", fs.combine(folder, i .. ".png"))
     end
 end
